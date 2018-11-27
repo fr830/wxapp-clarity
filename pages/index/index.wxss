@@ -15,7 +15,7 @@
   top: 0;
   position: absolute;
   width: 100%;
-  padding-top: 60rpx;
+  padding-top: 80rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,15 +26,19 @@
 /* 顶部-定位 */
 
 .top .dw {
-  flex: 3;
+  /* flex: 3; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 10rpx;
+  /* position: relative; */
 }
 
 .top .dw .dw-icon {
-  padding: 0 20rpx;
+  padding-right: 10rpx;
+  margin-left: -40rpx;
+  /* position: absolute; */
+  /* left: -60rpx; */
 }
 
 .top .dw .dw-text {
@@ -44,7 +48,7 @@
 
 /* 顶部-加号 */
 
-.top .add {
+/* .top .add {
   display: flex;
   justify-content: flex-end;
   flex: 2;
@@ -52,13 +56,13 @@
 
 .top .add image {
   padding: 0 20rpx;
-}
+} */
 
 /* 污染信息 */
 
 .info {
   position: absolute;
-  top: 70%;
+  top: 75%;
   width: 100%;
   padding: 75rpx 0;
   display: flex;

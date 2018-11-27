@@ -4,30 +4,30 @@
 <view class="container">
   <!-- 顶部 -->
   <view class='top'>
-    <view class='dw'>
+    <view class='dw' bindtap='addwz'>
       <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
       <view class='dw-text'>{{city}}市</view>
     </view>
-    <view class='add' bindtap='addwz'>
+    <!-- <view class='add' bindtap='addwz'>
       <image class='icon' mode='aspectFit' src='/img/add.png'></image>
-    </view>
+    </view> -->
   </view>
   <!-- 污染信息 -->
   <view class='info'>
 
     <view class='weather'>
-      <view class='weather-top'>
+      <!-- <view class='weather-top'>
         <image class='icon' mode='aspectFit' src='/img/rain.png'>
         </image>
         <view>阴</view>
-      </view>
+      </view> -->
       <view class='big-text'>{{quality}}</view>
     </view>
-    <view class='air'><view>空气污染指数:{{quality}}</view><view class='date'>{{date}}</view></view>
+    <view class='air'><view>空气污染指数:{{aqi}}</view><view class='date'>{{date}}</view></view>
   </view>
   <view class='more'>
 
-    <view class='lyznd' wx:for="{{lastMoniData}}">
+    <view class='lyznd' wx:for="{{lastMoniData}}" wx:key="city">
       <view class="lyznd-header">
         {{item.city}} {{item.quality}}
       </view>
