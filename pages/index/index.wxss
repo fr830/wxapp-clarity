@@ -1,0 +1,139 @@
+/**index.wxss**/
+
+.bj {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  width: 750rpx;
+  height: 100vh;
+}
+
+/* 顶部 */
+
+.top {
+  /* position: fixed; */
+  top: 0;
+  position: absolute;
+  width: 100%;
+  padding-top: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  line-height: 40rpx;
+}
+
+/* 顶部-定位 */
+
+.top .dw {
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.top .dw .dw-icon {
+  padding: 0 20rpx;
+}
+
+.top .dw .dw-text {
+  text-align: center;
+  color: white;
+}
+
+/* 顶部-加号 */
+
+.top .add {
+  display: flex;
+  justify-content: flex-end;
+  flex: 2;
+}
+
+.top .add image {
+  padding: 0 20rpx;
+}
+
+/* 污染信息 */
+
+.info {
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  padding: 75rpx 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.info .weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info .weather .weather-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.info .weather .weather-top .icon {
+  margin-right: 15rpx;
+}
+
+.weather .big-text {
+  font-size: 200rpx;
+  line-height: 1em;
+}
+
+/* 更多信息 */
+
+.more {
+  margin-top: 100vh;
+}
+
+/* 更多信息-六因子浓度 */
+
+.more .lyznd {
+  border-radius: 20rpx;
+  width: 700rpx;
+  background: rgba(120, 120, 120, 0.5);
+  margin: 0 auto;
+  padding: 15rpx;
+  margin-top: 30rpx;
+}
+
+.more .lyznd::before{
+  content: "s";/* 必须包括 */
+  position: absolute;/* 固定模糊层位置 */
+  width:300%;
+  height:300%;
+  left: -100%;/* 回调模糊层位置 */
+  top: -100%;/* 回调模糊层位置 */
+  background:url(1.jpg) no-repeat center center fixed;/* 与上面的bg中的background设置一样 */
+  filter: blur(20px);/* 值越大越模糊 */
+  z-index: -2;/* 模糊层在最下面 */
+}
+
+.lyznd-header {
+  font-size: 40rpx;
+  line-height: 1.6em;
+  border-bottom: 1rpx solid #fff;
+}
+
+.lyznd-list {
+}
+
+.lyznd-item {
+  padding-top: 20rpx;
+  line-height: 1.6em;
+  display: inline-block;
+  width: 330rpx;
+  border-bottom: 1rpx solid #fff;
+}
+
+.lyznd-item:nth-child(2n-1) {
+  margin-right: 40rpx;
+}

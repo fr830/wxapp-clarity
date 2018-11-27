@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<image class='bj' src='/img/bj-s.jpg'></image>
+<!-- 背景 -->
+<view class="container">
+  <!-- 顶部 -->
+  <view class='top'>
+    <view class='dw'>
+      <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
+      <view class='dw-text'>杭州市</view>
+    </view>
+    <view class='add'>
+      <image class='icon' mode='aspectFit' src='/img/add.png'></image>
+    </view>
+  </view>
+  <!-- 污染信息 -->
+  <view class='info'>
+
+    <view class='weather'>
+      <view class='weather-top'>
+        <image class='icon' mode='aspectFit' src='/img/rain.png'>
+        </image>
+        <view>阴</view>
+      </view>
+      <view class='big-text'>优</view>
+    </view>
+    <view class='air'>空气污染指数:低</view>
+  </view>
+  <view class='more'>
+    <view class='lyznd'>
+      <view class="lyznd-header">
+        六因子浓度
+      </view>
+      <view class='lyznd-list'>
+        <view class='lyznd-item'>SO2</view>
+        <view class='lyznd-item'>NO2</view>
+        <view class='lyznd-item'>O3</view>
+        <view class='lyznd-item'>PM2.5</view>
+        <view class='lyznd-item'>PM10</view>
+        <view class='lyznd-item'>CO</view>
+      </view>
+    </view>
+
+    <view class='lyznd'>
+      <view class="lyznd-header">
+        六因子浓度
+      </view>
+      <view class='lyznd-list'>
+        <view class='lyznd-item'>SO2</view>
+        <view class='lyznd-item'>NO2</view>
+        <view class='lyznd-item'>O3</view>
+        <view class='lyznd-item'>PM2.5</view>
+        <view class='lyznd-item'>PM10</view>
+        <view class='lyznd-item'>CO</view>
+      </view>
+    </view>
+
+    <view class='lyznd'>
+      <view class="lyznd-header">
+        六因子浓度
+      </view>
+      <view class='lyznd-list'>
+        <view class='lyznd-item'>SO2</view>
+        <view class='lyznd-item'>NO2</view>
+        <view class='lyznd-item'>O3</view>
+        <view class='lyznd-item'>PM2.5</view>
+        <view class='lyznd-item'>PM10</view>
+        <view class='lyznd-item'>CO</view>
+      </view>
+    </view>
+  </view>
+</view>
