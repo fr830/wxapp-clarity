@@ -6,9 +6,9 @@
   <view class='top'>
     <view class='dw'>
       <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
-      <view class='dw-text'>杭州市</view>
+      <view class='dw-text'>{{city}}市</view>
     </view>
-    <view class='add'>
+    <view class='add' bindtap='addwz'>
       <image class='icon' mode='aspectFit' src='/img/add.png'></image>
     </view>
   </view>
@@ -21,51 +21,23 @@
         </image>
         <view>阴</view>
       </view>
-      <view class='big-text'>优</view>
+      <view class='big-text'>{{quality}}</view>
     </view>
-    <view class='air'>空气污染指数:低</view>
+    <view class='air'><view>空气污染指数:{{quality}}</view><view class='date'>{{date}}</view></view>
   </view>
   <view class='more'>
-    <view class='lyznd'>
+
+    <view class='lyznd' wx:for="{{lastMoniData}}">
       <view class="lyznd-header">
-        六因子浓度
+        {{item.city}} {{item.quality}}
       </view>
       <view class='lyznd-list'>
-        <view class='lyznd-item'>SO2</view>
-        <view class='lyznd-item'>NO2</view>
-        <view class='lyznd-item'>O3</view>
-        <view class='lyznd-item'>PM2.5</view>
-        <view class='lyznd-item'>PM10</view>
-        <view class='lyznd-item'>CO</view>
+        <view class='lyznd-item'>AQI {{item.AQI}}</view>
+        <view class='lyznd-item'>PM2.5Hour {{item.PM2_5Hour}}</view>
+        <view class='lyznd-item'>PM2.5Day {{item.PM2_5Hour}}</view>
+        <view class='lyznd-item'>PM10Hour {{item.PM10Hour}}</view>
       </view>
     </view>
 
-    <view class='lyznd'>
-      <view class="lyznd-header">
-        六因子浓度
-      </view>
-      <view class='lyznd-list'>
-        <view class='lyznd-item'>SO2</view>
-        <view class='lyznd-item'>NO2</view>
-        <view class='lyznd-item'>O3</view>
-        <view class='lyznd-item'>PM2.5</view>
-        <view class='lyznd-item'>PM10</view>
-        <view class='lyznd-item'>CO</view>
-      </view>
-    </view>
-
-    <view class='lyznd'>
-      <view class="lyznd-header">
-        六因子浓度
-      </view>
-      <view class='lyznd-list'>
-        <view class='lyznd-item'>SO2</view>
-        <view class='lyznd-item'>NO2</view>
-        <view class='lyznd-item'>O3</view>
-        <view class='lyznd-item'>PM2.5</view>
-        <view class='lyznd-item'>PM10</view>
-        <view class='lyznd-item'>CO</view>
-      </view>
-    </view>
   </view>
 </view>
