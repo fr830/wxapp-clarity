@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container {
+  text-shadow: 1rpx 1rpx 1rpx #666;
+}
 
 .bj {
   z-index: -1;
@@ -6,6 +9,11 @@
   top: 0;
   width: 750rpx;
   height: 100vh;
+}
+
+.h3 {
+  font-size: 2em;
+  text-align: center;
 }
 
 /* 顶部 */
@@ -37,8 +45,7 @@
 .top .dw .dw-icon {
   padding-right: 10rpx;
   margin-left: -40rpx;
-  /* position: absolute; */
-  /* left: -60rpx; */
+  /* position: absolute; *//* left: -60rpx; */
 }
 
 .top .dw .dw-text {
@@ -57,6 +64,15 @@
 .top .add image {
   padding: 0 20rpx;
 } */
+
+/* map */
+
+#map {
+  width: 90%;
+  height: 300px;
+  margin: 40% auto 0 auto;
+  border-radius: 100rpx;
+}
 
 /* 污染信息 */
 
@@ -92,6 +108,12 @@
   line-height: 1em;
 }
 
+.weather .sm-text {
+  font-size: 100rpx;
+  line-height: 1em;
+  width: 2em;
+}
+
 .date {
   font-size: 0.6em;
 }
@@ -100,30 +122,38 @@
 
 .more {
   margin-top: 100vh;
-  padding-bottom:100rpx;
+  padding-bottom: 100rpx;
 }
 
 /* 更多信息-六因子浓度 */
 
-.more .lyznd {
+.lyzdn .panel-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: none;
+}
+
+.more .panel {
   border-radius: 20rpx;
   width: 700rpx;
-  background: rgba(120, 120, 120, 0.5); 
+  background: rgba(120, 120, 120, 0.5);
   margin: 0 auto;
   padding: 15rpx;
   margin-top: 30rpx;
 }
 
-.lyznd-header {
+.panel-header {
   font-size: 40rpx;
   line-height: 1.6em;
   border-bottom: 1rpx solid #999;
 }
 
-.lyznd-list {
+.panel-list {
 }
 
-.lyznd-item {
+.panel-item {
   padding-top: 20rpx;
   line-height: 1.6em;
   display: inline-block;
@@ -131,6 +161,6 @@
   border-bottom: 1rpx solid #999;
 }
 
-.lyznd-item:nth-child(2n-1) {
+.panel-item:nth-child(2n-1) {
   margin-right: 40rpx;
 }
