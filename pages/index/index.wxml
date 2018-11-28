@@ -86,24 +86,24 @@
 
     <view class='panel'>
       <view class="panel-header">
-        {{lastMoniData[1].city}} {{lastMoniData[1].quality}}
+        {{lastMoniData[id].city}} {{lastMoniData[id].quality}}
       </view>
       <view class='panel-list'>
         <view class='panel-item'>
           <view class='panel-tit'>AQI</view>
-          <view class='panel-num'>{{lastMoniData[1].AQI}}</view>
+          <view class='panel-num'>{{lastMoniData[id].AQI}}</view>
         </view>
         <view class='panel-item'>
           <view class='panel-tit'>PM2.5（时）</view>
-          <view class='panel-num'>{{lastMoniData[1].PM2_5Hour}} (ug/m3)</view>
+          <view class='panel-num'>{{lastMoniData[id].PM2_5Hour}} (ug/m3)</view>
         </view>
         <view class='panel-item'>
           <view class='panel-tit'>PM2.5（天）</view>
-          <view class='panel-num'>{{lastMoniData[1].PM2_5Day}} (ug/m3)</view>
+          <view class='panel-num'>{{lastMoniData[id].PM2_5Day}} (ug/m3)</view>
         </view>
         <view class='panel-item'>
           <view class='panel-tit'>PM10（时）</view>
-          <view class='panel-num'>{{lastMoniData[1].PM10Hour}} (ug/m3)</view>
+          <view class='panel-num'>{{lastMoniData[id].PM10Hour}} (ug/m3)</view>
         </view>
       </view>
     </view>

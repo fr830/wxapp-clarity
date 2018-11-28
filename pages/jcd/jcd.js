@@ -19,4 +19,18 @@ Page({
       queryData
     )
   },
+  bindmarkertap: function(e){
+    console.log(e.markerId)
+    wx.setStorage({
+      key: "jcdId",
+      data: e.markerId
+    })
+    wx.setStorage({
+      key: "isBack",
+      data: "y"
+    })
+    wx.navigateBack({
+      delta: 1
+    })
+  }
 })

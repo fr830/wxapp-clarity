@@ -35,7 +35,8 @@ Page({
     "date": "2008-11-28 14:00",
     "lastMoniData": {},
     "lastTwoWeeks": {},
-    "markers": []
+    "markers": [],
+    "id": 1
   },
   //事件处理函数
   onLoad: function() {
@@ -111,13 +112,37 @@ Page({
         res.data = JSON.parse(res.data.replace(/\./g, '_'));
         that.setData({
           //that.setData方法将接口返回的数据存入当前页面实例的data对象，实现视图绑定
-          AQI: res.data.result[0].AQI,
-          CO: res.data.result[0].CO,
-          NO2: res.data.result[0].NO2,
-          O3: res.data.result[0].O3,
-          PM2_5: res.data.result[0].PM2_5,
-          PM10: res.data.result[0].PM10,
-          SO2: res.data.result[0].SO2
+          AQI: res.data.result[0].AQI.replace(/_/g, '.'),
+          CO: res.data.result[0].CO.replace(/_/g, '.'),
+          NO2: res.data.result[0].NO2.replace(/_/g, '.'),
+          O3: res.data.result[0].O3.replace(/_/g, '.'),
+          PM2_5: res.data.result[0].PM2_5.replace(/_/g, '.'),
+          PM10: res.data.result[0].PM10.replace(/_/g, '.'),
+          SO2: res.data.result[0].SO2.replace(/_/g, '.')
+        })
+      }
+    })
+  },
+  onShow: function() {
+    let that = this; 
+    wx.getStorage({
+      key: 'jcdId',
+      success(res) {
+        that.setData({
+          id: res.data
+        })
+      }
+    })
+    wx.getStorage({
+      key: 'isBack',
+      success(res) {
+        wx.pageScrollTo({
+          scrollTop: 800,
+          duration: 0
+        })
+        wx.setStorage({
+          key: "isBack",
+          data: "n"
         })
       }
     })

@@ -2,7 +2,7 @@
 <view class='container'>
   <image class='bj' src='/img/bj-s.jpg'></image>
   <!-- 地图 -->
-  <map id="map" longitude="{{location.lng}}" latitude="{{location.lat}}" subkey='NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24' scale="12" markers="{{markers}}"  show-location></map>
+  <map id="map" longitude="{{location.lng}}" latitude="{{location.lat}}" subkey='NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24' scale="12" markers="{{markers}}"  show-location bindmarkertap="bindmarkertap"></map>
 <!-- include-points="{{markers}}" -->
   <view class='h3'>监测点</view>
 
