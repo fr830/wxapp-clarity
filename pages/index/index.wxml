@@ -12,8 +12,6 @@
       <image class='icon' mode='aspectFit' src='/img/add.png'></image>
     </view> -->
   </view>
-  <!-- 地图 -->
-  <!-- <map id="map" longitude="{{location.lng}}" latitude="{{location.lat}}" subkey='NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24' scale="12" markers="{{markers}}" include-points="{{markers}}" show-location></map> -->
 
   <!-- 污染信息 -->
   <view class='info'>
@@ -33,7 +31,7 @@
   </view>
   <view class='more'>
 
-<view class='h3'>主要污染物</view>
+    <view class='h3'>主要污染物</view>
     <view class='panel lyzdn'>
       <!-- <view class="panel-header">
         主要污染物
@@ -69,9 +67,12 @@
         </view>
       </view>
     </view>
-<!-- 监测点 -->
-    <view class='h3'>监测点</view>
-    <view class='panel' wx:for="{{lastMoniData}}" wx:key="city">
+    <!-- 监测点 -->
+    <view class='h3'>监测点
+      <view bindtap='showMore' class='jcd-more'>更多</view>
+    </view>
+
+    <!-- <view class='panel' wx:for="{{lastMoniData}}" wx:key="city">
       <view class="panel-header">
         {{item.city}} {{item.quality}}
       </view>
@@ -80,6 +81,30 @@
         <view class='panel-item'>PM2.5Hour {{item.PM2_5Hour}}</view>
         <view class='panel-item'>PM2.5Day {{item.PM2_5Hour}}</view>
         <view class='panel-item'>PM10Hour {{item.PM10Hour}}</view>
+      </view>
+    </view> -->
+
+    <view class='panel'>
+      <view class="panel-header">
+        {{lastMoniData[1].city}} {{lastMoniData[1].quality}}
+      </view>
+      <view class='panel-list'>
+        <view class='panel-item'>
+          <view class='panel-tit'>AQI</view>
+          <view class='panel-num'>{{lastMoniData[1].AQI}}</view>
+        </view>
+        <view class='panel-item'>
+          <view class='panel-tit'>PM2.5（时）</view>
+          <view class='panel-num'>{{lastMoniData[1].PM2_5Hour}} (ug/m3)</view>
+        </view>
+        <view class='panel-item'>
+          <view class='panel-tit'>PM2.5（天）</view>
+          <view class='panel-num'>{{lastMoniData[1].PM2_5Day}} (ug/m3)</view>
+        </view>
+        <view class='panel-item'>
+          <view class='panel-tit'>PM10（时）</view>
+          <view class='panel-num'>{{lastMoniData[1].PM10Hour}} (ug/m3)</view>
+        </view>
       </view>
     </view>
 

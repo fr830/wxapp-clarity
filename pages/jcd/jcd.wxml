@@ -1,0 +1,32 @@
+<!--pages/jcd.wxml-->
+<view class='container'>
+  <image class='bj' src='/img/bj-s.jpg'></image>
+  <!-- 地图 -->
+  <map id="map" longitude="{{location.lng}}" latitude="{{location.lat}}" subkey='NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24' scale="12" markers="{{markers}}"  show-location></map>
+<!-- include-points="{{markers}}" -->
+  <view class='h3'>监测点</view>
+
+  <view class='panel' wx:for="{{lastMoniData}}" wx:key="city">
+    <view class="panel-header">
+      {{item.city}} {{item.quality}}
+    </view>
+    <view class='panel-list'>
+      <view class='panel-item'>
+        <view class='panel-tit'>AQI</view>
+        <view class='panel-num'>{{item.AQI}}</view>
+      </view>
+      <view class='panel-item'>
+        <view class='panel-tit'>PM2.5（时）</view>
+        <view class='panel-num'>{{item.PM2_5Hour}} (ug/m3)</view>
+      </view>
+      <view class='panel-item'>
+        <view class='panel-tit'>PM2.5（天）</view>
+        <view class='panel-num'>{{item.PM2_5Hour}} (ug/m3)</view>
+      </view>
+      <view class='panel-item'>
+        <view class='panel-tit'>PM10（时）</view>
+        <view class='panel-num'>{{item.PM10Hour}} (ug/m3)</view>
+      </view>
+    </view>
+  </view>
+</view>

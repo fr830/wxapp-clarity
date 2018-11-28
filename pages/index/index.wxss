@@ -1,19 +1,8 @@
 /**index.wxss**/
-.container {
-  text-shadow: 1rpx 1rpx 1rpx #666;
-}
 
-.bj {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  width: 750rpx;
-  height: 100vh;
-}
-
-.h3 {
-  font-size: 2em;
-  text-align: center;
+.jcd-more {
+  float: right;
+  text-align: right;
 }
 
 /* 顶部 */
@@ -66,13 +55,6 @@
 } */
 
 /* map */
-
-#map {
-  width: 90%;
-  height: 300px;
-  margin: 40% auto 0 auto;
-  border-radius: 100rpx;
-}
 
 /* 污染信息 */
 
@@ -133,34 +115,4 @@
   width: 100%;
   margin: 0 auto;
   border-bottom: none;
-}
-
-.more .panel {
-  border-radius: 20rpx;
-  width: 700rpx;
-  background: rgba(120, 120, 120, 0.5);
-  margin: 0 auto;
-  padding: 15rpx;
-  margin-top: 30rpx;
-}
-
-.panel-header {
-  font-size: 40rpx;
-  line-height: 1.6em;
-  border-bottom: 1rpx solid #999;
-}
-
-.panel-list {
-}
-
-.panel-item {
-  padding-top: 20rpx;
-  line-height: 1.6em;
-  display: inline-block;
-  width: 330rpx;
-  border-bottom: 1rpx solid #999;
-}
-
-.panel-item:nth-child(2n-1) {
-  margin-right: 40rpx;
 }

@@ -2,8 +2,8 @@
 // 引入腾讯地图SDK核心类
 var QQMapWX = require('../../utils/qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
 var qqmapsdk;
-const airApi = 'http://web.juhe.cn:8080/environment/air/cityair';
-const pmApi = 'http://web.juhe.cn:8080/environment/air/pm';
+const airApi = 'https://api.zkl2333.com/environment/air/cityair';
+const pmApi = 'https://api.zkl2333.com/environment/air/pm';
 const apiKey = '9182edec05af05f68b4a36018182c73c';
 const mapKey = 'NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24'
 //获取应用实例
@@ -32,83 +32,23 @@ Page({
       "lat": 30.274085,
       "lng": 120.15507
     },
-    "date": "2018-11-28 14:00",
-    "lastMoniData": {
-      "1": {
-        "city": "滨江",
-        "AQI": "85",
-        "America_AQI": "146",
-        "quality": "良",
-        "PM2_5Hour": "63",
-        "PM2_5Day": "63",
-        "PM10Hour": "96",
-        "lat": "30_21",
-        "lon": "120_210833"
-      },
-      "2": {
-        "city": "西溪",
-        "AQI": "88",
-        "America_AQI": "146",
-        "quality": "良",
-        "PM2_5Hour": "63",
-        "PM2_5Day": "63",
-        "PM10Hour": "125",
-        "lat": "30_27472222",
-        "lon": "120_0633333"
-      }
-    },
-    "lastTwoWeeks": {
-      "1": {
-        "city": "杭州",
-        "AQI": "49",
-        "quality": "优",
-        "date": "2018-10-31"
-      },
-      "2": {
-        "city": "杭州",
-        "AQI": "43",
-        "quality": "优",
-        "date": "2018-11-01"
-      }
-    },
-    "markers": [{
-      "iconPath": "/img/air2.png",
-      "title": "云栖",
-      "id": "11",
-      "latitude": "30.18083333",
-      "longitude": "120.0883333",
-      "label": {
-        "content": "云栖",
-        "color": "#fff",
-        "anchorX": "10",
-        "anchorY": "-20"
-      },
-      "width": 20,
-      "height": 20
-    }],
+    "date": "2008-11-28 14:00",
+    "lastMoniData": {},
+    "lastTwoWeeks": {},
+    "markers": []
   },
   //事件处理函数
-  onLoad: function () {
+  onLoad: function() {
     // 实例化腾讯地图API核心类
     qqmapsdk = new QQMapWX({
       key: mapKey
     });
     // 在加载时请求一次默认城市数据
-    // this.getapi('hangzhou');
+    this.getapi(this.data.city);
   },
-  getapi: function (weizhi) {
+  getapi: function(weizhi) {
     //获取空气信息 
     let that = this; //将当前作用域this保留到变量that，以便在闭包中还原
-    /* wx.request方法发起网络请求 
-     * 参数列表
-     * 属性          类型                       	默认值	必填	说明	
-     * url	          string	                  	        是	  开发者服务器接口地址
-     * data	        string/object/ArrayBuffer	        	否  	请求的参数
-     * header	      Object	                          	否  	设置请求的 header，header 中不能设置 Referer。
-     *                                                         content-type  默认为 application/json
-     * dataType	    string	                    json	  否  	返回的数据格式
-     * success	      function                      	  	否  	接口调用成功的回调函数
-     */
     wx.request({
       url: airApi, //接口地址
       data: {
@@ -169,24 +109,33 @@ Page({
       // 但请求成功返回
       success(res) {
         res.data = JSON.parse(res.data.replace(/\./g, '_'));
-
+        that.setData({
+          //that.setData方法将接口返回的数据存入当前页面实例的data对象，实现视图绑定
+          AQI: res.data.result[0].AQI,
+          CO: res.data.result[0].CO,
+          NO2: res.data.result[0].NO2,
+          O3: res.data.result[0].O3,
+          PM2_5: res.data.result[0].PM2_5,
+          PM10: res.data.result[0].PM10,
+          SO2: res.data.result[0].SO2
+        })
       }
     })
   },
   // 点击事件
-  addwz: function () {
+  addwz: function() {
     // 选择位置
     let that = this; //将当前作用域this保留到变量that，以便在闭包中还原
     // 
     wx.chooseLocation({
-      success: function (res) {
+      success: function(res) {
         // 使用腾讯地图sdk解析坐标
         qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
             longitude: res.longitude
           },
-          success: function (res) {
+          success: function(res) {
             console.log(res)
             that.setData({
               location: {
@@ -197,22 +146,32 @@ Page({
             })
             that.getapi(res.result.address_component.city.slice(0, -1));
           },
-          fail: function (res) {
+          fail: function(res) {
             console.log('坐标解析失败');
             console.log(res);
           },
-          complete: function (res) {
+          complete: function(res) {
             console.log('坐标解析结束');
           }
         });
       },
-      fail: function () {
+      fail: function() {
         console.log('选择位置失败');
         console.log(res);
       },
-      complete: function () {
+      complete: function() {
         console.log('选择位置结束');
       }
+    })
+  },
+  showMore: function() {
+    //将对象转为string
+    var queryData = JSON.stringify(this.data)
+    wx.navigateTo({
+      url: '/pages/jcd/jcd?queryData=' + queryData,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   }
 })
