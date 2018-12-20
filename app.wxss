@@ -15,15 +15,15 @@
 }
 
 .h3 {
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: left;
   padding: 15rpx;
 }
 
 .icon {
   display: inline-block;
-  height: 1.5em;
-  width: 1.5em;
+  height: 0.85em;
+  width: 0.85em;
 }
 
 .panel {

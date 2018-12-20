@@ -1,6 +1,0 @@
-/* pages/jcd.wxss */
-#map {
-  width: 100%;
-  height: 100vh;
-  border-radius: 100rpx;
-}

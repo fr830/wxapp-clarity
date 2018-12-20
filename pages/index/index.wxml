@@ -2,111 +2,82 @@
 <image class='bj' src='/img/bj-s.jpg'></image>
 <!-- 背景 -->
 <view class="container">
-  <!-- 顶部 -->
-  <view class='top'>
-    <view class='dw' bindtap='addwz'>
-      <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
-      <view class='dw-text'>{{city}}市</view>
-    </view>
-    <!-- <view class='add' bindtap='addwz'>
-      <image class='icon' mode='aspectFit' src='/img/add.png'></image>
-    </view> -->
-  </view>
-
-  <!-- 污染信息 -->
-  <view class='info'>
-
-    <view class='weather'>
-      <!-- <view class='weather-top'>
-        <image class='icon' mode='aspectFit' src='/img/rain.png'>
-        </image>
-        <view>阴</view>
-      </view> -->
-      <view class="{{aqi>100?'sm-text':'big-text'}}">{{quality}}</view>
-    </view>
-    <view class='air'>
-      <view>空气污染指数:{{aqi}}</view>
-      <view class='date'>{{date}}</view>
-    </view>
-  </view>
-  <view class='more'>
-
-    <view class='h3'>主要污染物</view>
-    <view class='panel lyzdn'>
-      <!-- <view class="panel-header">
-        主要污染物
-      </view> -->
-      <view class='panel-list'>
-        <!-- <view class='panel-item'>
-          <view class='lyznd-tit'>空气质量指数</view>
-          <view class='lyznd-num'>{{aqi}}</view>
-        </view> -->
-        <view class='panel-item'>
-          <view class='lyznd-tit'>PM2.5</view>
-          <view class='lyznd-num'>{{PM2_5}}(ug/m3)</view>
+    <!-- 顶部 -->
+    <view class='top'>
+        <view class='dw' bindtap='addwz'>
+            <view class='dw-text'>{{city}}市</view>
+            <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
         </view>
-        <view class='panel-item'>
-          <view class='lyznd-tit'>PM10</view>
-          <view class='lyznd-num'>{{PM10}}(ug/m3)</view>
+        <view class='sz' bindtap='addsz'>
+            <image class='icon' mode='aspectFit' src='/img/sz.png'></image>
         </view>
-        <view class='panel-item'>
-          <view class='lyznd-tit'>一氧化碳</view>
-          <view class='lyznd-num'>{{CO}}(mg/m3)</view>
-        </view>
-        <view class='panel-item'>
-          <view class='lyznd-tit'>二氧化氮</view>
-          <view class='lyznd-num'>{{NO2}}(ug/m3)</view>
-        </view>
-        <view class='panel-item'>
-          <view class='lyznd-tit'>臭氧</view>
-          <view class='lyznd-num'>{{O3}}(ug/m3)</view>
-        </view>
-        <view class='panel-item'>
-          <view class='lyznd-tit'>二氧化硫</view>
-          <view class='lyznd-num'>{{SO2}}(ug/m3)</view>
-        </view>
-      </view>
-    </view>
-    <!-- 监测点 -->
-    <view class='h3'>监测点
-      <view bindtap='showMore' class='jcd-more'>更多</view>
     </view>
 
-    <!-- <view class='panel' wx:for="{{lastMoniData}}" wx:key="city">
-      <view class="panel-header">
-        {{item.city}} {{item.quality}}
-      </view>
-      <view class='panel-list'>
-        <view class='panel-item'>AQI {{item.AQI}}</view>
-        <view class='panel-item'>PM2.5Hour {{item.PM2_5Hour}}</view>
-        <view class='panel-item'>PM2.5Day {{item.PM2_5Hour}}</view>
-        <view class='panel-item'>PM10Hour {{item.PM10Hour}}</view>
-      </view>
-    </view> -->
-
-    <view class='panel'>
-      <view class="panel-header">
-        {{lastMoniData[id].city}} {{lastMoniData[id].quality}}
-      </view>
-      <view class='panel-list'>
-        <view class='panel-item'>
-          <view class='panel-tit'>AQI</view>
-          <view class='panel-num'>{{lastMoniData[id].AQI}}</view>
+    <!-- 污染信息 -->
+    <view class='info'>
+        <view class='aqi'>
+            <view class="sm-text">AQI</view>
+            <view class="big-text">{{aqi}}</view>
         </view>
-        <view class='panel-item'>
-          <view class='panel-tit'>PM2.5（时）</view>
-          <view class='panel-num'>{{lastMoniData[id].PM2_5Hour}} (ug/m3)</view>
+        <view class='quality'>
+            <view>{{quality}}</view>
         </view>
-        <view class='panel-item'>
-          <view class='panel-tit'>PM2.5（天）</view>
-          <view class='panel-num'>{{lastMoniData[id].PM2_5Day}} (ug/m3)</view>
-        </view>
-        <view class='panel-item'>
-          <view class='panel-tit'>PM10（时）</view>
-          <view class='panel-num'>{{lastMoniData[id].PM10Hour}} (ug/m3)</view>
-        </view>
-      </view>
     </view>
-
-  </view>
+    <view class='future'>
+        未来空气质量 - 未完成
+    </view>
+    <view class='more'>
+        <view class='lyzdn'>
+            <view class='list'>
+                <view class='line y1'></view>
+                <view class='line y2'></view>
+                <view class='line x1'></view>
+                <view class='item'>
+                    <view class='lyznd-tit'>PM2.5</view>
+                    <view class='lyznd-num'>{{PM2_5}}(ug/m3)</view>
+                </view>
+                <view class='item'>
+                    <view class='lyznd-tit'>PM10</view>
+                    <view class='lyznd-num'>{{PM10}}(ug/m3)</view>
+                </view>
+                <view class='item'>
+                    <view class='lyznd-tit'>一氧化碳</view>
+                    <view class='lyznd-num'>{{CO}}(mg/m3)</view>
+                </view>
+                <view class='item'>
+                    <view class='lyznd-tit'>二氧化氮</view>
+                    <view class='lyznd-num'>{{NO2}}(ug/m3)</view>
+                </view>
+                <view class='item'>
+                    <view class='lyznd-tit'>臭氧</view>
+                    <view class='lyznd-num'>{{O3}}(ug/m3)</view>
+                </view>
+                <view class='item'>
+                    <view class='lyznd-tit'>二氧化硫</view>
+                    <view class='lyznd-num'>{{SO2}}(ug/m3)</view>
+                </view>
+            </view>
+        </view>
+        <!-- 监测点 -->
+        <view class='map'>
+            <map id="map" longitude="{{location.lng}}" latitude="{{location.lat}}" subkey='NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24' scale="12" markers="{{markers}}" show-location bindmarkertap="bindmarkertap"></map>
+        </view>
+        <view class='jcd'>
+            <view class='h3'>监测点</view>
+            <view class='jcd-header'>
+                <view class='tb'>序号</view>
+                <view class='tb'>检测位置</view>
+                <view class='tb'>等级</view>
+                <view class='tb'>AQI</view>
+            </view>
+            <view class='jcd-list' wx:for="{{lastMoniData}}" wx:key="city">
+                <view class='jcd-item'>
+                    <view class='tb'>{{index>9?'0'+index:'00'+index}}</view>
+                    <view class='tb'>{{item.city}}</view>
+                    <view class='tb'>{{item.quality}}</view>
+                    <view class='tb'>{{item.AQI}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>
