@@ -1,59 +1,84 @@
 /*app.wxss*/
 
+/* view {
+    outline: 1px red solid;
+} */
+
+sub {
+    font-size: 0.8em;
+    position: relative;
+    left: -0.2em;
+    bottom: -0.2em;
+    font-weight: 200
+}
+
 .container {
-  height: 100%;
-  color: white;
-  text-shadow: 1rpx 1rpx 1rpx #666;
+    height: 100%;
+    color: white;
+    text-shadow: 3rpx 3rpx 5rpx #333;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+ff-canvas,canvas {
+    width: 700rpx;
+    height: 400rpx;
 }
 
 .bj {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  width: 750rpx;
-  height: 100vh;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    width: 750rpx;
+    height: 100vh;
 }
 
 .h3 {
-  font-size: 1.5em;
-  text-align: left;
-  padding: 15rpx;
+    font-size: 1.5em;
+    text-align: left;
+    padding: 15rpx;
 }
 
 .icon {
-  display: inline-block;
-  height: 0.85em;
-  width: 0.85em;
+    display: inline-block;
+    height: 0.85em;
+    width: 0.85em;
 }
 
 .panel {
-  border-radius: 20rpx;
-  width: 700rpx;
-  background: rgba(120, 120, 120, 0.5);
-  margin: 0 auto;
-  padding: 15rpx;
-  margin-top: 30rpx;
+    border-radius: 20rpx;
+    width: 700rpx;
+    background: rgba(120, 120, 120, 0.5);
+    margin: 0 auto;
+    padding: 15rpx;
+    margin-top: 30rpx;
 }
 
 .panel-header {
-  font-size: 40rpx;
-  line-height: 1.6em;
-  border-bottom: 1rpx solid #999;
+    font-size: 40rpx;
+    line-height: 1.6em;
+    border-bottom: 1rpx solid #999;
 }
 
 .panel-item {
-  padding-top: 20rpx;
-  line-height: 1.6em;
-  /* display: inline-block;
+    padding-top: 20rpx;
+    line-height: 1.6em;
+    /* display: inline-block;
   width: 330rpx;
   border-bottom: 1rpx solid #999; */
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-  border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: none;
 }
 
 .panel-item:nth-child(2n-1) {
-  margin-right: 40rpx;
+    margin-right: 40rpx;
 }

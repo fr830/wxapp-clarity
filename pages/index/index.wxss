@@ -102,11 +102,23 @@
 .future {
     color: #000;
     position: absolute;
-    bottom: 0rpx;
+    bottom: 50rpx;
     width: 100%;
-    height: 300rpx;
-    background: #eee;
+    height: 400rpx;
+    /* background: #eee; */
     opacity: 0.8;
+}
+
+.future view {
+    position: relative;
+    top: 100rpx;
+    font-size: 25rpx;
+    font-weight: 200;
+    color: #fff;
+}
+
+ff-canvas {
+    height: 400rpx;
 }
 
 .date {
@@ -122,13 +134,13 @@
 
 /* 更多信息-六因子浓度 */
 
-.lyzdn .list {
+.lyznd .list {
     padding: 60rpx 0;
     overflow: hidden;
     position: relative;
 }
 
-.lyzdn .item {
+.lyznd .item {
     width: 250rpx;
     padding: 30rpx 0;
     font-size: 30rpx;
@@ -138,7 +150,7 @@
     font-weight: 200;
 }
 
-.lyzdn .line {
+.lyznd .line {
     position: absolute;
     background: #fff;
     width: 1rpx;
@@ -154,7 +166,7 @@
     left: 500rpx;
 }
 
-.lyzdn .list .x1 {
+.lyznd .list .x1 {
     top: 210rpx;
     left: 25rpx;
     width: 700rpx;

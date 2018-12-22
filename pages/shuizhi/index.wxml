@@ -1,0 +1,162 @@
+<!--index.wxml-->
+<image class='bj' src='/img/bj-s.jpg'></image>
+<!-- 背景 -->
+<view class="container">
+    <!-- 顶部 -->
+    <view class='top'>
+        <view class='dw' bindtap='addwz'>
+            <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                <view class="dw-text">{{river.name}}</view>
+            </picker>
+            <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
+        </view>
+        <view class='sz' bindtap='gotoAir'>
+            <image class='icon' mode='aspectFit' src='/img/air.png'></image>
+        </view>
+
+    </view>
+    <!-- 河道信息 -->
+    <view class='info'>
+        <view class='right'>
+            <view class='item'>
+                <view>
+                    河道编号
+                </view>
+                <view>
+                    {{river.riverSerialNum}}
+                </view>
+            </view>
+            <view class='item'>
+                <view>
+                    所属区县
+                </view>
+                <view>
+                    {{river.districtName}}
+                </view>
+            </view>
+            <view class='item'>
+                <view>
+                    河道起点
+                </view>
+                <view>
+                    {{river.startingPoint}}
+                </view>
+            </view>
+            <view class='item'>
+                <view>
+                    河道终点
+                </view>
+                <view>
+                    {{river.endingPoint}}
+                </view>
+            </view>
+            <view class='item'>
+                <view>
+                    河道长度
+                </view>
+                <view>
+                    {{river.riverLength}}
+                </view>
+            </view>
+            <view class='item zzmb'>
+                <view>
+                    整治目标
+                </view>
+                <view>
+                    {{river.target}}
+                </view>
+            </view>
+        </view>
+        <view class='left'>
+            <view class='item'>
+                <image class='pic' aspectFill src="{{river.picPath}}"></image>
+            </view>
+            <view class='item hzzr'>
+                <view>河长职责</view>
+                <view>{{river.responsibility}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 水质信息 -->
+    <view class='waterQ'>
+        <view class='right'>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>DO</view>
+                    <view class='en'>
+                        溶解氧
+                    </view>
+                </view>
+                <view class='item-num'>{{now.DO}}</view>
+            </view>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>MH
+                        <sub>3</sub>-N</view>
+                    <view class='en'>
+                        氨氮
+                    </view>
+                </view>
+                <view class='item-num'>{{now.NH3N}}</view>
+            </view>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>ORP</view>
+                    <view class='en'>
+                        氧化还原电位
+                    </view>
+                </view>
+                <view class='item-num'>{{now.ORP}}</view>
+            </view>
+        </view>
+        <view class='left'>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>COD
+                        <sub>Mn</sub>
+                    </view>
+                    <view class='en'>
+                        高猛酸盐指数
+                    </view>
+                </view>
+                <view class='item-num'>{{now.CODMn}}</view>
+            </view>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>TP</view>
+                    <view class='en'>
+                        总磷
+                    </view>
+                </view>
+                <view class='item-num'>{{now.TP}}</view>
+            </view>
+            <view class='item'>
+                <view class='item-tit'>
+                    <view class='cn'>Transp</view>
+                    <view class='en'>
+                        透明度
+                    </view>
+                </view>
+                <view class='item-num'>{{now.Transp}}</view>
+            </view>
+        </view>
+        <view class='bottom'>
+            <view class='item {{a=="DO"?"a":""}}' id='DO' bindtap='change'>DO</view>
+            <view class='item {{a=="CODMn"?"a":""}}' id='CODMn' bindtap='change'>COD
+                <sub>Mn</sub>
+            </view>
+            <view class='item {{a=="NH3N"?"a":""}}' id='NH3N' bindtap='change'>MH
+                <sub>3</sub>-N</view>
+            <view class='item {{a=="TP"?"a":""}}' id='TP' bindtap='change'>TP</view>
+            <view class='item {{a=="ORP"?"a":""}}' id='ORP' bindtap='change'>ORP</view>
+            <view class='item {{a=="Transp"?"a":""}}' id='Transp' bindtap='change'>Transp</view>
+            <view class='item'>
+                <image src='/img/dot.png'></image>
+            </view>
+        </view>
+    </view>
+    <view class='chart'>
+        <ff-canvas id="waterQ-chart" canvas-id="column" opts="{{ opts }}"></ff-canvas>
+    </view>
+</view>

@@ -5,14 +5,13 @@
     <!-- 顶部 -->
     <view class='top'>
         <view class='dw' bindtap='addwz'>
-            <view class='dw-text'>{{city}}市</view>
+            <view class='dw-text'>{{district||city+'市'}}</view>
             <image class='dw-icon icon' mode='aspectFit' src='/img/dh.png'></image>
         </view>
-        <view class='sz' bindtap='addsz'>
+        <view class='sz' bindtap='gotoWater'>
             <image class='icon' mode='aspectFit' src='/img/sz.png'></image>
         </view>
     </view>
-
     <!-- 污染信息 -->
     <view class='info'>
         <view class='aqi'>
@@ -23,22 +22,26 @@
             <view>{{quality}}</view>
         </view>
     </view>
-    <view class='future'>
-        未来空气质量 - 未完成
+    <!-- 未来空气质量 -->
+    <view class='future chart'>
+    <view>历史空气质量</view>
+        <ff-canvas id="Air-chart" canvas-id="column" opts="{{ opts }}"></ff-canvas>
     </view>
+    <!-- 监测点 -->
     <view class='more'>
-        <view class='lyzdn'>
+        <!-- 六因子浓度 -->
+        <view class='lyznd'>
             <view class='list'>
                 <view class='line y1'></view>
                 <view class='line y2'></view>
                 <view class='line x1'></view>
                 <view class='item'>
                     <view class='lyznd-tit'>PM2.5</view>
-                    <view class='lyznd-num'>{{PM2_5}}(ug/m3)</view>
+                    <view class='lyznd-num'>{{PM2_5}}(μg/m3)</view>
                 </view>
                 <view class='item'>
                     <view class='lyznd-tit'>PM10</view>
-                    <view class='lyznd-num'>{{PM10}}(ug/m3)</view>
+                    <view class='lyznd-num'>{{PM10}}(μg/m3)</view>
                 </view>
                 <view class='item'>
                     <view class='lyznd-tit'>一氧化碳</view>
@@ -46,15 +49,15 @@
                 </view>
                 <view class='item'>
                     <view class='lyznd-tit'>二氧化氮</view>
-                    <view class='lyznd-num'>{{NO2}}(ug/m3)</view>
+                    <view class='lyznd-num'>{{NO2}}(μg/m3)</view>
                 </view>
                 <view class='item'>
                     <view class='lyznd-tit'>臭氧</view>
-                    <view class='lyznd-num'>{{O3}}(ug/m3)</view>
+                    <view class='lyznd-num'>{{O3}}(μg/m3)</view>
                 </view>
                 <view class='item'>
                     <view class='lyznd-tit'>二氧化硫</view>
-                    <view class='lyznd-num'>{{SO2}}(ug/m3)</view>
+                    <view class='lyznd-num'>{{SO2}}(μg/m3)</view>
                 </view>
             </view>
         </view>

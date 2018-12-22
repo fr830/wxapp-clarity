@@ -1,0 +1,207 @@
+/**index.wxss**/
+
+.jcd-more {
+    float: right;
+    text-align: right;
+}
+
+/* 顶部 */
+
+.top {
+    /* position: fixed; */
+    top: 0;
+    position: absolute;
+    width: 100%;
+    padding-top: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45rpx;
+    line-height: 40rpx;
+}
+
+/* 顶部-定位 */
+
+.top .dw {
+    /* flex: 3; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10rpx;
+    /* position: relative; */
+}
+
+.top .dw .dw-icon {
+    padding-left: 10rpx;
+    padding-top: 10rpx;
+    /* position: absolute; *//* left: -60rpx; */
+}
+
+.top .dw .dw-text {
+    margin-left: 40rpx;
+    text-align: center;
+    color: white;
+}
+
+/* 顶部-切换水质 */
+
+.top .sz {
+    position: absolute;
+    left: 30rpx;
+}
+
+.top .sz image {
+    width: 1.5em;
+    height: 1.5em;
+    /* padding: 0 20rpx; */
+}
+
+.info {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 25rpx;
+    margin-top: 180rpx;
+    width: 700rpx;
+    margin-left: 25rpx;
+    border-radius: 20rpx;
+    padding: 20rpx;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 左右公共 */
+
+/* 去除第一行margin */
+
+.info>view view:nth-child(1) {
+    margin-top: 0 !important;
+}
+
+.info>view view:last-child {
+    margin-bottom: 0 !important;
+}
+
+.info>view {
+    width: 48%;
+}
+
+/* 左边 */
+
+.info .left .item view {
+    margin-bottom: 15rpx;
+}
+
+.hzzr view:nth-child(2) {
+    font-size: 18rpx;
+}
+
+.pic {
+    border-radius: 20rpx;
+    height: 200rpx;
+    width: 100%;
+    background: #000;
+}
+
+.hzzr {
+    margin: 20rpx 0;
+}
+
+.hzzr view:nth-child(1) {
+    font-size: 30rpx;
+}
+
+/* 右边 */
+
+.info .right .item {
+    margin: 40rpx 0;
+}
+
+.info .right .item view {
+    display: inline-block;
+}
+
+.info .right .item view:nth-child(2){
+    float: right
+}
+
+.info .right .item view:nth-child(2) {
+    text-align: right;
+}
+
+.zzmb view:nth-child(2) {
+    font-size: 20rpx;
+    width: 100%;
+}
+
+/* 水质 */
+
+.waterQ {
+    position: relative;
+    width: 680rpx;
+    margin: 40rpx auto;
+}
+
+.waterQ>view {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.waterQ>view .item {
+    position: relative;
+    line-height: 1.0em;
+    padding: 10rpx 0;
+}
+
+.waterQ .item-tit {
+    font-size: 25rpx;
+    display: inline-block;
+    width: 180rpx;
+}
+
+.waterQ .item-num {
+    position: absolute;
+    font-size: 40rpx;
+    right: 20rpx;
+    top: 25rpx;
+}
+
+.waterQ .bottom {
+    margin-top:20rpx;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 35rpx 35rpx;
+    overflow: hidden;
+    border: 4rpx #ccc solid;
+}
+
+.waterQ .bottom>.item {
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+    padding: 15rpx 5rpx;
+    font-size: 22rpx;
+    font-weight: 200;
+    border-right: 4rpx #ccc solid;
+}
+
+.bottom image {
+    height: 60rpx;
+    width: 88rpx;
+    margin: -5rpx;
+}
+
+.waterQ .bottom .item:last-child {
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.a{
+    background: #ccc;
+    color: #666;
+}

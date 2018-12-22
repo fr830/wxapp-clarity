@@ -4,11 +4,12 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"nodeModules": true,
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
@@ -37,10 +38,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": 0,
+					"id": -1,
 					"name": "jcd",
-					"pathName": "pages/jcd/jcd",
-					"query": "city=杭州"
+					"pathName": "pages/shuizhi/index",
+					"query": ""
 				}
 			]
 		}

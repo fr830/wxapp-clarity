@@ -10,6 +10,8 @@ const mapKey = 'NGCBZ-GTC33-37E3V-YBJ4M-OYAWK-6CB24'
 //获取应用实例
 const app = getApp()
 
+import F2 from '@antv/wx-f2';
+
 Page({
     data: {
         "city": "杭州",
@@ -37,10 +39,13 @@ Page({
         "lastMoniData": {},
         "lastTwoWeeks": {},
         "markers": [],
-        "id": 1
+        opts: {
+            lazyLoad: true
+        },
     },
     //事件处理函数
     onLoad: function() {
+        let that = this;
         // 实例化腾讯地图API核心类
         qqmapsdk = new QQMapWX({
             key: mapKey
@@ -69,7 +74,6 @@ Page({
                     markers.push({
                         callout: {
                             content: res.data.result[0].lastMoniData[v].city + '\nAQI: ' + res.data.result[0].lastMoniData[v].AQI + '\nPM2.5 : ' + res.data.result[0].lastMoniData[v].PM2_5Hour,
-                            // display: 'ALWAYS',
                             padding: 10,
                             borderRadius: 5,
                             bgColor: '#999'
@@ -97,6 +101,7 @@ Page({
                 })
                 // 调试数据
                 // console.log(res.data.result[0])
+                that.intChart()
             }
         })
         wx.request({
@@ -126,15 +131,61 @@ Page({
         })
     },
     onShow: function() {
+
+    },
+    intChart: function() {
         let that = this;
-        wx.getStorage({
-            key: 'jcdId',
-            success(res) {
-                that.setData({
-                    id: res.data
-                })
-            }
-        })
+        const data = [];
+        for (let i in that.data.lastTwoWeeks) {
+            let AQI = Number(that.data.lastTwoWeeks[i].AQI)
+            let date = that.data.lastTwoWeeks[i].date
+            data.push({
+                AQI,
+                date
+            })
+        }
+        that.chartComponent = that.selectComponent('#Air-chart');
+        that.chartComponent.init((canvas, width, height) => {
+            // 获取组件的 canvas、width、height 后的回调函数
+            // 开始初始化图表
+            const chart = new F2.Chart({
+                el: canvas,
+                width,
+                height,
+                padding: 40
+            });
+            chart.source(data, {
+                'date': {
+                    type: 'timeCat',
+                    mask: "MM/DD",
+                    range: [0, 1]
+                },
+                'AQI': {
+                    alias: 'AQI(空气质量指数)',
+                    // ticks: [0, 50, 100, 150, 200, 300, 500],
+                    min: 0,
+                }
+            });
+            chart.axis('AQI', false)
+            chart.axis('date', {
+                line: null,
+                label: {
+                    fontSize: 15,
+                    fontWeight: 200,
+                    fill: '#fff'
+                }
+            })
+            chart.tooltip({
+                // showTitle: true, // 展示  tooltip 的标题
+                // showCrosshairs: true,
+                // custom: true, // 自定义 tooltip 内容框
+                onShow: function(ev) {},
+            });
+            chart.line().position('date*AQI').shape('smooth').color('#fff');
+            chart.render();
+            that.chart = chart;
+            return chart;
+        });
     },
     // 点击事件
     addwz: function() {
@@ -150,13 +201,14 @@ Page({
                         longitude: res.longitude
                     },
                     success: function(res) {
-                        console.log(res)
+                        console.log(res.result.address_component.district)
                         that.setData({
                             location: {
                                 lat: res.result.location.lat,
                                 lng: res.result.location.lng
                             },
-                            city: res.result.address_component.city.slice(0, -1)
+                            city: res.result.address_component.city.slice(0, -1),
+                            district: res.result.address_component.district
                         })
                         that.getapi(res.result.address_component.city.slice(0, -1));
                     },
@@ -176,6 +228,11 @@ Page({
             complete: function() {
                 console.log('选择位置结束');
             }
+        })
+    },
+    gotoWater: function() {
+        wx.switchTab({
+            url: '/pages/shuizhi/index'
         })
     }
 })

@@ -1,13 +1,25 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/jcd/jcd"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#042055",
-    "navigationBarTitleText": "净度",
-    "navigationBarTextStyle": "#fff",
-    "navigationStyle": "custom"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/shuizhi/index"
+    ],
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "Air"
+            },
+            {
+                "pagePath": "pages/shuizhi/index",
+                "text": "Water"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#042055",
+        "navigationBarTitleText": "净度",
+        "navigationBarTextStyle": "#fff",
+        "navigationStyle": "custom"
+    }
 }
