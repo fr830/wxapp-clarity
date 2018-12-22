@@ -92,9 +92,6 @@ Page({
                 }
                 that.setData({
                     //that.setData方法将接口返回的数据存入当前页面实例的data对象，实现视图绑定
-                    aqi: res.data.result[0].citynow.AQI,
-                    quality: res.data.result[0].citynow.quality,
-                    date: res.data.result[0].citynow.date,
                     lastMoniData: res.data.result[0].lastMoniData,
                     lastTwoWeeks: res.data.result[0].lastTwoWeeks,
                     markers: markers
@@ -119,13 +116,15 @@ Page({
                 res.data = JSON.parse(res.data.replace(/\./g, '_'));
                 that.setData({
                     //that.setData方法将接口返回的数据存入当前页面实例的data对象，实现视图绑定
-                    AQI: res.data.result[0].AQI.replace(/_/g, '.'),
+                    aqi: res.data.result[0].AQI.replace(/_/g, '.'),
                     CO: res.data.result[0].CO.replace(/_/g, '.'),
                     NO2: res.data.result[0].NO2.replace(/_/g, '.'),
                     O3: res.data.result[0].O3.replace(/_/g, '.'),
                     PM2_5: res.data.result[0].PM2_5.replace(/_/g, '.'),
                     PM10: res.data.result[0].PM10.replace(/_/g, '.'),
-                    SO2: res.data.result[0].SO2.replace(/_/g, '.')
+                    SO2: res.data.result[0].SO2.replace(/_/g, '.'),
+                    quality: res.data.result[0].quality,
+                    time: res.data.result[0].time
                 })
             }
         })
