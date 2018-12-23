@@ -139,6 +139,16 @@ Page({
                         });
                         chart.line().position('uploadTime*Value').shape('smooth').color('#fff');
                         chart.area().position('uploadTime*Value').shape('smooth').color("#fff");
+                      chart.axis('uploadTime', {
+                        label:{
+                          fill:"#fff"
+                        }
+                      })
+                      chart.axis('Value', {
+                        label: {
+                          fill: "#fff"
+                        }
+                      })
                         chart.render();
                         that.chart = chart;
                         return chart;

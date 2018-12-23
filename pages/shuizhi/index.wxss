@@ -175,7 +175,7 @@
     justify-content: center;
     border-radius: 0 0 35rpx 35rpx;
     overflow: hidden;
-    border: 4rpx #ccc solid;
+    border: 4rpx #fff solid;
 }
 
 .waterQ .bottom>.item {
@@ -186,7 +186,7 @@
     padding: 15rpx 5rpx;
     font-size: 22rpx;
     font-weight: 200;
-    border-right: 4rpx #ccc solid;
+    border-right: 4rpx #fff solid;
 }
 
 .bottom image {
@@ -202,6 +202,6 @@
 }
 
 .a{
-    background: #ccc;
+    background: #fff;
     color: #666;
 }

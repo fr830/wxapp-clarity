@@ -49,6 +49,8 @@ ff-canvas,canvas {
     display: inline-block;
     height: 0.85em;
     width: 0.85em;
+    position: relative;
+    top: -2rpx;
 }
 
 .panel {

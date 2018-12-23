@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<image class='bj' src='/img/bj-s.jpg'></image>
+<image class='bj' src='/img/bj.png'></image>
 <!-- 背景 -->
 <view class="container">
     <!-- 顶部 -->
